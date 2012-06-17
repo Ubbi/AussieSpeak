@@ -1,0 +1,7 @@
+== AussieSpeak
+
+AussieSpeak adds mate to the end of the sentence and the c-word every other word
+
+=== Compiling
+
+Maven 3 is required to compile AussieSpeak

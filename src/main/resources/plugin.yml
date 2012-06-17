@@ -1,0 +1,5 @@
+name: AussieSpeak
+main: AussieSpeak
+version: ${project.version}
+author: AUTHOR
+description: AussieSpeak adds mate to the end of the sentence and the c-word every other word
