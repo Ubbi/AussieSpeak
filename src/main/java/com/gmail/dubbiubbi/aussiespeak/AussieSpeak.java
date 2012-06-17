@@ -1,11 +1,11 @@
 package com.gmail.dubbiubbi.aussiespeak;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.player.PlayerChatEvent;
-import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class AussieSpeak extends JavaPlugin implements Listener {
 	private boolean inUse = false;
@@ -21,23 +21,26 @@ public class AussieSpeak extends JavaPlugin implements Listener {
 	public void onDisable() {
 		this.getLogger().info("AussieSpeak unloaded!");
 	}
+	@EventHandler
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
+    	if(cmd.getName().equalsIgnoreCase("aussiespeak")){ // If the player typed /basic then do the following...
+    		inUse = !inUse;
+    		return true;
+    	} //If this has happened the function will break and return true. if this hasn't happened the a value of false will be returned.
+    	return false; 
+    }
 
 	@EventHandler
 	public void onPlayerChat(PlayerChatEvent event) {
-		String message = event.getMessage();
-		String messageToSend = new String(ChatColor.DARK_RED+"You do not have permission.");
-		Player player = event.getPlayer();
-		if(message.equals("/aussiespeak")){
-			if(player.isOp()){
-					inUse = !inUse;
-			}else{
-				player.sendMessage(messageToSend);
-			}
-		}
 		if(inUse){
-			message.replaceAll(" ", " cunt ");
-			message.replaceAll(".", ", mate.");
-		}	
-		event.setMessage(message);
+			String message = event.getMessage();
+			message = message.replaceAll(" ", " cunt ");
+			if(message.contains(".")){
+				message = message.replaceAll("\\.", ", mate.");
+			}else{
+				message = message.concat(", mate.");
+			}
+			event.setMessage(message);
+		}		
 	}
 }

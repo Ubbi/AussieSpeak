@@ -3,3 +3,9 @@ main: com.gmail.dubbiubbi.aussiespeak.AussieSpeak
 version: ${project.version}
 author: Ubbi
 description: AussieSpeak adds mate to the end of the sentence and the c-word every other word
+commands:
+   aussiespeak:
+      description: toggles on and off the plugin 
+      usage: /<command> [player]
+      permission: <plugin name>.aussiespeak
+      permission-message: You don't have <permission>
