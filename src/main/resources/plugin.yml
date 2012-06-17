@@ -1,5 +1,5 @@
-name: AussieSpeak
-main: AussieSpeak
+name: ${project.name}
+main: com.gmail.dubbiubbi.aussiespeak.AussieSpeak
 version: ${project.version}
-author: AUTHOR
+author: Ubbi
 description: AussieSpeak adds mate to the end of the sentence and the c-word every other word

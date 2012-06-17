@@ -38,8 +38,6 @@ public class AussieSpeak extends JavaPlugin implements Listener {
 			message.replaceAll(" ", " cunt ");
 			message.replaceAll(".", ", mate.");
 		}	
-			
-		//message = ChatColor.GREEN + message;
 		event.setMessage(message);
 	}
 }
